@@ -1,14 +1,14 @@
 [![official JetBrains project](http://jb.gg/badges/official.svg)](https://github.com/JetBrains/.github/blob/main/profile/README.md) [![Build status](https://github.com/JetBrains/intellij-community/workflows/IntelliJ%20IDEA/badge.svg)](https://github.com/JetBrains/intellij-community/actions/workflows/IntelliJ_IDEA.yml)
 
-# IntelliJ IDEA Community Edition 
+# Jeger IDEA Approved Edition 
 
 These instructions will help you build IntelliJ IDEA Community Edition from source code, which is the basis for IntelliJ Platform development.
 The following conventions will be used to refer to directories on your machine:
 * `<USER_HOME>` is your home directory.
 * `<IDEA_HOME>` is the root directory for the IntelliJ source code.
 
-## Getting IntelliJ IDEA Community Edition Source Code
-IntelliJ IDEA Community Edition source code is available from `github.com/JetBrains/intellij-community` by either cloning or
+## Getting Jeger IDEA Approved Edition Source Code
+Jeger IDEA Community Edition source code is available from `github.com/JetBrains/intellij-community` by either cloning or
 downloading a zip file (based on a branch) into `<IDEA_HOME>`. The default is the *master* branch. 
 
 The master branch contains the source code which will be used to create the next major version of IntelliJ IDEA. The branch names
@@ -24,26 +24,25 @@ _**On Windows:**_ Two git options are required to check out sources on Windows. 
 * `git config --global core.longpaths true`
 * `git config --global core.autocrlf input`
 
-IntelliJ IDEA Community Edition requires additional Android modules from separate Git repositories. To clone these repositories,
+Jeger IDEA Community Edition requires additional Android modules from separate Git repositories. To clone these repositories,
 run one of the `getPlugins` scripts located in the `<IDEA_HOME>` directory. Use the `--shallow` argument if the complete repository history isn't needed. 
 These scripts clone their respective *master* branches. Make sure you are inside the `<IDEA_HOME>` directory when running those scripts, so the modules get cloned inside the `<IDEA_HOME>` directory.
 * `getPlugins.sh` for Linux or macOS.
 * `getPlugins.bat` for Windows.
 
-_**Note:**_ Always `git checkout` the `intellij-community` and `android` Git repositories to the same branches/tags. 
+_**Note:**_ Always `git checkout` the `jeger-community` and `android` Git repositories to the same branches/tags. 
 
-## Building IntelliJ Community Edition
-Version 2023.2 or newer of IntelliJ IDEA Community Edition or IntelliJ IDEA Ultimate Edition is required to build and develop
-for the IntelliJ Platform.
+## Building Jeger Approved Edition
+Version 2023.2 or newer of Jeger IDEA Community Edition 
 
-### Opening the IntelliJ Source Code for Build
-Using IntelliJ IDEA **File | Open**, select the `<IDEA_HOME>` directory. 
-* If IntelliJ IDEA displays an error about a missing or out of date required plugin (e.g. Kotlin),
-  [enable, upgrade, or install that plugin](https://www.jetbrains.com/help/idea/managing-plugins.html) and restart IntelliJ IDEA.
+### Opening the Jeger Source Code for Build
+Using Jeger IDEA **File | Open**, select the `<IDEA_HOME>` directory. 
+* If Jeger IDEA displays an error about a missing or out of date required plugin (e.g. Kotlin),
+  [enable, upgrade, or install that plugin](https://www.jetbrains.com/help/idea/managing-plugins.html) and restart Jeger IDEA.
 
-### IntelliJ Build Configuration
+### Jeger Build Configuration
 1. It's recommended to use JetBrains Runtime 17 to compile the project. 
-   When you invoke **Build Project** for the first time, IntelliJ IDEA should suggest downloading it automatically.
+   When you invoke **Build Project** for the first time, Jeger IDEA should suggest downloading it automatically.
 2. If the _Maven_ plugin is disabled, [add the path variable](https://www.jetbrains.com/help/idea/absolute-path-variables.html)
    "**MAVEN_REPOSITORY**" pointing to `<USER_HOME>/.m2/repository` directory.
 3. Make sure you have at least 8GB of RAM on your computer. With the bare minimum of RAM, disable "Compile independent modules in parallel"
@@ -52,11 +51,11 @@ Using IntelliJ IDEA **File | Open**, select the `<IDEA_HOME>` directory.
 
 Note that it is important to use the variant of JetBrains Runtime **without JCEF**.
 So, if for some reason `jbr-17` SDK points to an installation of JetBrains Runtime with JCEF, you need to change it: 
-ensure that IntelliJ IDEA is running in internal mode (by adding `idea.is.internal=true` to `idea.properties` file), navigate to `jbr-17` 
+ensure that Jeger IDEA is running in internal mode (by adding `idea.is.internal=true` to `idea.properties` file), navigate to `jbr-17` 
 item in Project Structure | SDKs, click on 'Browse' button, choose 'Download...' item and select version 17 and vendor 'JetBrains Runtime'.
 
-### Building the IntelliJ Application Source Code
-To build IntelliJ IDEA Community Edition from source, choose **Build | Build Project** from the main menu.
+### Building the Jeger Application Source Code
+To build Jeger IDEA Community Edition from source, choose **Build | Build Project** from the main menu.
 
 To build installation packages, run the `installers.cmd` command in `<IDEA_HOME>` directory. `installers.cmd` will work on both Windows and Unix systems.
 
@@ -80,8 +79,8 @@ To build installation packages inside a Docker container with preinstalled depen
 To reuse the existing Maven cache from the host system, add the following option to `docker run` command:
 `--volume "$HOME/.m2:/home/ide_builder/.m2"`
 
-## Running IntelliJ IDEA
-To run the IntelliJ IDEA built from source, choose **Run | Run** from the main menu. This will use the preconfigured run configuration "**IDEA**".
+## Running Jeger IDEA
+To run the Jeger IDEA built from source, choose **Run | Run** from the main menu. This will use the preconfigured run configuration "**IDEA**".
 
 To run tests on the build, apply these setting to the **Run | Edit Configurations... | Templates | JUnit** configuration tab:
   * Working dir: `<IDEA_HOME>/bin`
@@ -91,9 +90,9 @@ To run tests on the build, apply these setting to the **Run | Edit Configuration
 You can find other helpful information at [https://www.jetbrains.com/opensource/idea](https://www.jetbrains.com/opensource/idea).
 The "Contribute Code" section of that site describes how you can contribute to IntelliJ IDEA.
 
-## Running IntelliJ IDEA on CI/CD environment
+## Running Jeger IDEA on CI/CD environment
 
-To run tests outside of IntelliJ IDEA, run the `tests.cmd` command in `<IDEA_HOME>` directory. `tests.cmd` will work on both Windows and Unix systems.
+To run tests outside of Jeger IDEA, run the `tests.cmd` command in `<IDEA_HOME>` directory. `tests.cmd` will work on both Windows and Unix systems.
 
 Options to run tests are passed as system properties to `tests.cmd` command.
 You may find the list of available properties in [TestingOptions.kt](platform/build-scripts/src/org/jetbrains/intellij/build/TestingOptions.kt)
